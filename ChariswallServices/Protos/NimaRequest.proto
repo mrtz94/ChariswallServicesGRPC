@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package NimaRequest;
+
+service NimaRequest {
+    rpc ProcessRequests(RequestInput) returns (ResultOutputRequest);
+    rpc ProcessRequestDetail(RequestDetailInput) returns (ResultOutputRequest);
+    rpc GetNewRequests(GeneralInputRequest) returns (NewRequests);
+    rpc CheckRequest(CodeInput) returns (CheckOutput);
+}
+
+message CodeInput {
+    int32 code = 1;
+}
+
+message CheckOutput {
+    bool result = 1;
+}
+
+message GeneralInputRequest {
+    string mode = 1;
+}
+
+message NewRequests {
+    repeated RequestOutRecord records = 1;
+}
+
+message RequestOutRecord {
+    int32 RequestCode = 1;
+}
+
+message RequestInput {
+    repeated RequestRecord requests = 1;
+}
+
+message RequestRecord {
+    int32 RequestCode = 1;
+    int32 RegisterOrderCode = 2;
+    string CurrencyName = 3;
+    double Amount = 4;
+    string Country = 5;
+    string PaymentExpireTime = 6;
+    string ExpireTime = 7;
+    string RequestType = 8;
+    string AmountType = 9;
+    string OrderTime = 10;
+    string Rigister = 11;
+}
+
+message RequestDetailInput {
+    RequestDetailRecord request = 1;
+}
+
+message RequestDetailRecord {
+    int32 RequestCode = 1;
+    string FirstName = 2;
+    string LastName = 3;
+    double Amount = 4;
+    string company = 5;
+    string CurrencyName = 6;
+    string CurrencyRateType = 7;
+    string CustomerType = 8;
+    string DestinationCountry = 9;
+    string NationalId = 10;
+    string PaymentExpireDate = 11;
+    int32 RegisterOrderCode = 12;
+    string RegistrationNumber = 13;
+    string RegistrationDate = 14;
+    string RequestReason = 15;
+    string RequestRegistrationDate = 16;
+    string RequestType = 17;
+    string RequestValidityDate = 18;
+    string State = 19;
+    string TransferType = 20;
+    string UserMobileNumber = 21;
+    string UserName = 22;
+    string RegistererType =23;
+    string bankBranch = 24;
+}
+
+message ResultOutputRequest {
+  bool result  =  1;
+}

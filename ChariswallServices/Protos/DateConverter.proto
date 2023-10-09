@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "HelperServer";
+
+package DateConverter;
+
+service DateConverter {
+	rpc IntToDate(InputDateInt) returns (OutputDateTime);
+	rpc GregorianToPersian(InputG2P) returns (OutputDateTime);
+	rpc PersianToGregorian(InputP2G) returns (OutputDateTime);
+	rpc AddBusinessDays(InputBusinessDays) returns (OutputDateTime);
+}
+
+message InputDateInt {
+	int32 dateint = 1;
+}
+
+message OutputDateTime {
+	string date = 1;
+}
+
+message InputG2P {
+	string date = 1;
+	int32 format = 2;
+}
+
+message InputP2G {
+	string date = 1;
+}
+
+message InputBusinessDays {
+	string date = 1;
+	int32 days = 2;
+}

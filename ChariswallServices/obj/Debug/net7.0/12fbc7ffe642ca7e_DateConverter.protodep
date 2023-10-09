@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/DateConverter.cs \
+obj\Debug\net7.0\Protos/DateConverterGrpc.cs: Protos/DateConverter.proto

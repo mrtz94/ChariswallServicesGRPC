@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package XERate;
+
+service XERate {
+    rpc UpdateRates(ratesInput) returns (ResultOutputRate);
+}
+
+message ratesInput {
+    repeated xerateInput records = 1;
+}
+
+message xerateInput {
+    double Rate = 1;
+    string Symbol = 2;
+}
+
+message ResultOutputRate {
+  bool result  =  1;
+}

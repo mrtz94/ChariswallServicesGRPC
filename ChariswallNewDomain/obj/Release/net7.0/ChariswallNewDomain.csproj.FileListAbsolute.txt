@@ -1,0 +1,14 @@
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\bin\Release\net7.0\ChariswallNewDomain.deps.json
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\bin\Release\net7.0\ChariswallNewDomain.runtimeconfig.json
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\bin\Release\net7.0\ChariswallNewDomain.dll
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\bin\Release\net7.0\ChariswallNewDomain.pdb
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.csproj.AssemblyReference.cache
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.AssemblyInfoInputs.cache
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.AssemblyInfo.cs
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.csproj.CoreCompileInputs.cache
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.dll
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\refint\ChariswallNewDomain.dll
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.pdb
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ChariswallNewDomain.genruntimeconfig.cache
+D:\Charizma\GRPC\CharismaExchangeChariswall\ChariswallNewDomain\obj\Release\net7.0\ref\ChariswallNewDomain.dll

@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package NimaSupply;
+
+service NimaSupply {
+    rpc ProcessSupplies(SupplyInput) returns (ResultOutputSupply);
+    rpc ProcessSupplyDetail(SupplyDetailInput) returns (ResultOutputSupply);
+    rpc GetNewSupplies(GeneralInputSupply) returns (NewSupplies);
+}
+
+message GeneralInputSupply {
+    string mode = 1;
+}
+
+message NewSupplies {
+    repeated SupplyOutRecord records = 1;
+}
+
+message SupplyOutRecord {
+    int32 SupplyCode = 1;
+    string Link = 2;
+}
+
+message SupplyInput {
+    repeated SupplyRecord supplies = 1;
+}
+
+message SupplyRecord {
+    int32 SellCode = 1;
+    string SellerName = 2;
+    string State = 3;
+    string CurrencyName = 4;
+    double Amount = 5;
+    string Country = 6;
+    double SellerPrice = 7;
+    double UnitRate = 8;
+    string RateType = 9;
+    string BuyerExpireTime = 10;
+    string BuyerReviewTime = 11;
+    string RefURL = 12;
+}
+
+message SupplyDetailInput {
+    SupplyDetailRecord supply = 1;
+}
+
+message SupplyDetailRecord {
+    int32 SupplyCode = 1;
+    string DemandDeadlineTime = 2;
+    string SupplyRegisterDate = 3;
+    string CurrencyRateType = 4;
+    string PaymentCondition = 5;
+    string DealRules = 6;
+    string ExportType = 7;
+    string CurrencyName = 8;
+    double Amount = 9;
+    string OriginCountry = 10;
+    int32 CurrencyUnitPrice = 11;
+    int32 CurrencyCoefficient = 12;
+    string DemandSelectDeadlineTime = 13;
+    string Company = 14;
+    string NationalId = 15;
+    string RegistrationNumber = 16;
+    string RegistrationDate = 17;
+    string FullNameAgent = 18;
+    string MobileNumber = 19;
+    string CustomerType = 20;
+    string Firstname = 21;
+    string Lastname = 22;
+}
+
+message ResultOutputSupply {
+  bool result  =  1;
+}

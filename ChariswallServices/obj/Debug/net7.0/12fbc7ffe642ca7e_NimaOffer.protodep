@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/NimaOffer.cs \
+obj\Debug\net7.0\Protos/NimaOfferGrpc.cs: Protos/NimaOffer.proto

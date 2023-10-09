@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/SanaTransaction.cs \
+obj\Debug\net7.0\Protos/SanaTransactionGrpc.cs: Protos/SanaTransaction.proto

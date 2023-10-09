@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package NimaOffer;
+
+service NimaOffer {
+    rpc ProcessOffers(OfferInput) returns (ResultOutputOffer);
+
+    rpc ProcessOfferDetail(OfferDetailInput) returns (ResultOutputOffer);
+
+    rpc ProcessOfferPayments(NimaPaymentInputOffer) returns (ResultOutputOffer);
+    rpc ProcessOfferPOs(NimaOfferPOInput) returns (ResultOutputOffer);
+
+    rpc GetNewOffers(GeneralInputOOffer) returns (NewOffers);
+
+    rpc GetUnfinishedOffers(GeneralInputOOffer) returns (NewOffers);
+
+    rpc GetSalesLastDate(GeneralInputOOffer) returns (LastDateOutputOffer);
+}
+
+message LastDateOutputOffer {
+    string lastDate = 1;
+}
+
+message GeneralInputOOffer {
+    string mode = 1;
+}
+
+message NewOffers {
+    repeated OfferOutRecord records = 1;
+}
+
+message OfferOutRecord {
+    int32 OfferCode = 1;
+    int32 RequestCode = 2;
+}
+
+message OfferInput {
+    repeated OfferRecord offers = 1;
+}
+
+message OfferRecord {
+    int32 OfferCode = 1;
+    double Amount = 2;
+    string CurrencyName = 3;
+    string ExpireDateTime = 4;
+    string RefURL = 5;
+    int32 RequestCode = 6;
+    string State = 7;
+    double UnitPrice = 8;
+    int32 UnitRate = 9;
+}
+
+message OfferDetailInput {
+    OfferDetailRecord offer = 1;
+}
+
+message NimaOfferPOInput {
+    int32 offerCode = 1;
+    repeated PORecord POs = 2;
+}
+
+message PORecord {
+    string FileName = 1;
+    string Link = 2;
+    string Description = 3;
+    string Volume = 4;
+}
+
+message OfferDetailRecord {
+    int32 OfferCode = 1;
+    double Amount = 2;
+    string BankAddress = 3;
+    string CodeDescription = 4;
+    string CurrencyName = 5;
+    double CurrencyUnitPrice = 6;
+    double CurrencyWage = 7;
+    string DestinationAccount = 8;
+    string DestinationBank = 9;
+    string ExpireDateTime = 10;
+    string IBAN = 11;
+    double IRRWage = 12;
+    string LastModifiedDate = 13;
+    string OfferDescription = 14;
+    string OtherPaymentCode = 15;
+    int32 RegisteredBy = 16;
+    string RegisterDate = 17;
+    int32 RequestCode = 18;
+    double TotalPrice = 19;
+    int32 TransferDelayTime = 20;
+    string DestinationCountry = 21;
+    string SWIFTCode = 22;
+    string AccountOwnerName = 23;
+    string AccountOwnerPhone = 24;
+    string AccountOwnerAddress = 25;
+    string state = 26;
+    string ExchangeBankAccount = 27;
+    string RialPaymentDeadline = 28;
+    string SanaTrackingNumber = 29;
+}
+
+message ResultOutputOffer {
+  bool result  =  1;
+}
+
+message NimaPaymentInputOffer {
+    int32 code = 1;
+    repeated PaymentRecordOffer pays = 2;
+}
+
+message PaymentRecordOffer {
+    string PaymentCode = 1;
+    string PaymentDate = 2;
+    double PaymentAmount = 3;
+    string SourceBankName = 4;
+    string PaymentType = 5;
+    string PaymentDsc = 6;
+    string PaymentState = 7;
+}

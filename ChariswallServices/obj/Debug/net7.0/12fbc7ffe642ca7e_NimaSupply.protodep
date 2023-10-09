@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/NimaSupply.cs \
+obj\Debug\net7.0\Protos/NimaSupplyGrpc.cs: Protos/NimaSupply.proto

@@ -1,0 +1,81 @@
+syntax  =  "proto3";
+
+option csharp_namespace  =  "ChariswallServices";
+
+package SanaTransaction;
+
+service SanaTransaction {
+  rpc GetTransaction (TransactionInput) returns (ResultOutput);
+  rpc checkTransaction (TNInput) returns (TNOutput);
+  rpc SavePayments(PaymentInput) returns (ResultOutput);
+}
+
+message ResultOutput {
+  bool result  =  1;
+}
+
+message TransactionInput {
+  SanaTr transaction  =  1;
+}
+
+message TNInput{
+    string TrackingNumber = 1;
+}
+
+message TNOutput{
+    string Link = 1;
+}
+
+message SanaTr {
+    string Action = 1;
+    string Company = 2;
+    string Amount = 3;
+    string Currency = 4;
+    string CustomerType = 5;
+    string Date = 6;
+    string Firstname = 7;
+    string Lastname = 8;
+    string NationalID = 9;
+    string PaymentStatus = 10;
+    string State = 11;
+    string TrackingNumber = 12;
+    string CurrencyRate = 13;
+    string CustomerRegisterDate = 14;
+    string CustomerRegisterNumber = 15;
+    string DealType = 16;
+    string Heading = 17;
+    string ExchangeStoreType = 18;
+    string ExchangeStoreCode = 19;
+    string ExchangeStoreTitle = 20;
+    string Phone = 21;
+    string PrevTrackNumber = 22;
+    string ReferralNumber = 23;
+    string RepresentativeBirthdate = 24;
+    string RepresentativeID = 25;
+    string RepresentativeIDInquiryState = 26;
+    string RepresentativeNationalCode = 27;
+    string RepresentativePhone = 28;
+    string RialAmount = 29;
+    string Source = 30;
+    string User = 31;
+    string UserCode = 32;
+    string DetailLink = 33;
+    int32 DetailRead = 34;
+}
+
+message PaymentInput {
+    string TrackingNumber = 1;
+    repeated PaymentModel payment = 2;
+}
+
+message PaymentModel {
+    string ExchangeAccount = 1;
+    string RialAmount = 2;
+    string paymentDate = 3;
+    string PaymentMethod = 4;
+    string PaymentTool = 5;
+    string RefNumber = 6;
+    string PaymentTrackingCode = 7;
+    string PaymentValidityCheck = 8;
+    string InfoMatchValidityCheck = 9;
+}

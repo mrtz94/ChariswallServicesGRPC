@@ -1,0 +1,193 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package NimaDeal;
+
+service NimaDeal {
+    rpc ProcessDemands(DemandInput) returns (ResultOutputDeal);
+    rpc ProcessDeals(DealInput) returns (ResultOutputDeal);
+
+    rpc ProcessDemandDetail(DemandDetailInput) returns (ResultOutputDeal);
+    rpc ProcessDealDetail(DealDetailInput) returns (ResultOutputDeal);
+
+    rpc ProcessDealPayments(NimaPaymentInputDeal) returns (ResultOutputDeal);
+
+    rpc GetNewDemands(GeneralInputDeal) returns (NewDemands);
+    rpc GetNewDeals(GeneralInputDeal) returns (NewDeals);
+
+    rpc GetUnfinishedDeals(GeneralInputDeal) returns (NewDeals);
+
+    rpc GetBuysLastDate(GeneralInputDeal) returns (LastDateOutputDeal);
+}
+
+message LastDateOutputDeal {
+    string lastDate = 1;
+}
+
+message GeneralInputDeal {
+    string mode = 1;
+}
+
+message NewDemands {
+    repeated DemandOutRecord records = 1;
+}
+
+message DemandOutRecord {
+    int32 DemandCode = 1;
+    string Link = 2;
+}
+
+message NewDeals {
+    repeated DealOutRecord records = 1;
+}
+
+message DealOutRecord {
+    int32 DealCode = 1;
+    string Link = 2;
+}
+
+message DemandInput {
+    repeated DemandRecord demands = 1;
+}
+
+message DemandRecord {
+    int32 SellCode = 1;
+    string SellerName = 2;
+    string CurrencyName = 3;
+    double SellAmount = 4;
+    int32 BuyerPrice = 5;
+    int32 UnitRate = 6;
+    string RateType = 7;
+    int32 DemandCode = 8;
+    string BuyerState = 9;
+    double BuyerAmount = 10;
+    double BuyerAmountMin = 11;
+    string RefURL = 12;
+}
+
+message DealInput {
+    repeated DealRecord deals = 1;
+}
+
+message DealRecord {
+    int32 TradeCode = 1;
+    double Amount = 2;
+    string State = 3;
+    int32 SellCode = 4;
+    string SellerName = 5;
+    string CurrencyName = 6;
+    string RateType = 7;
+    int32 UnitPrice = 8;
+    int32 UnitRate = 9;
+    int32 DemandCode = 10;
+    string RefURL = 11;
+}
+
+message DemandDetailInput {
+    DemandDetailRecord demand = 1;
+}
+
+message DealDetailInput {
+    DealDetailRecord deal = 1;
+}
+
+message NimaPaymentInputDeal {
+    int32 code = 1;
+    repeated PaymentRecordDeal pays = 2;
+}
+
+message PaymentRecordDeal {
+    string PaymentCode = 1;
+    string PaymentDate = 2;
+    double PaymentAmount = 3;
+    string SourceBankName = 4;
+    string PaymentType = 5;
+    string PaymentDsc = 6;
+    string PaymentState = 7;
+}
+
+message DemandDetailRecord {
+    int32 DemandCode = 1;
+    double UnitPrice = 2;
+    double AmountMax = 3;
+    double AmountMin = 4;
+    string DestinationCountry = 5;
+    string DestinationBank = 6;
+    string Demand_SWIFT = 7;
+    string CodeType = 8;
+    string AccountNumber = 9;
+    string IBAN = 10;
+    string AccountOwner = 11;
+    string OtherCodes = 12;
+    string Status = 13;
+    string PaymentTerms = 14;
+    int32 SupplyCode = 15;
+    double SupplyAmount = 16;
+    string RateType = 17;
+    string SupplyRegisterDate = 18;
+    string DealRules = 19;
+    string InsertDemandDeadline = 20;
+    string OriginCountry = 21;
+    double SupplierUnitPrice = 22;
+    int32 CurrencyRateFactor = 23;
+    string Supplier = 24;
+    string NationalId = 25;
+    string CompanyRegistrationNumber = 26;
+    string CompanyRegistrationDate = 27;
+    string FullNameAgent = 28;
+    string MobileNumber = 29;
+    string CurrencyName = 30;
+    string CustomerType = 31;
+    string Firstname = 32;
+    string Lastname = 33;
+}
+
+message DealDetailRecord {
+    int32 TradeCode = 1;
+    double DealAmount = 2;
+    string Status = 3;
+    string TransferenceDate = 4;
+    string SanaTrackingCode = 5;
+    string CreateDate = 6;
+    double RialAmount = 7;
+    string SupplierBankName = 8;
+    string SupplierAccountNumber = 9;
+    string SupplierIBAN = 10;
+    string SupplierAcountOwner = 11;
+    int32 SupplyCode = 12;
+    string CurrencyName = 13;
+    double SupplyAmount = 14;
+    int32 CurrencyUnitPrice = 15;
+    int32 RateFactor = 16;
+    string RateType = 17;
+    string OriginCountry = 18;
+    string PaymentCondition = 19;
+    string PaymentTerms = 20;
+    string DealRules = 21;
+    string Company = 22;
+    string NationalId = 23;
+    string RegistrationNumber = 24;
+    string RegistrationDate = 25;
+    string FullNameAgent = 26;
+    string MobileNumber = 27;
+    double AmountMax = 28;
+    double AmountMin = 29;
+    string DestinationCountry = 30;
+    string DestinationBank = 31;
+    string SWIFT = 32;
+    string OtherCodes = 33;
+    string CodeType = 34;
+    string AccountNumber = 35;
+    string IBAN = 36;
+    string AccountOwner = 37;
+    string CustomerType = 38;
+    string Firstname = 39;
+    string Lastname = 40;
+    int32 SupplyUnitPrice = 41;
+    string RialPaymentMethod = 42;
+}
+
+message ResultOutputDeal {
+  bool result  =  1;
+}

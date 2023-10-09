@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/NimaRequest.cs \
+obj\Debug\net7.0\Protos/NimaRequestGrpc.cs: Protos/NimaRequest.proto

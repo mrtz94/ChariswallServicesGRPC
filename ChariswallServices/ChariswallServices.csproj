@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\DateConverter.proto" />
+    <None Remove="Protos\NimaDeal.proto" />
+    <None Remove="Protos\NimaOffer.proto" />
+    <None Remove="Protos\NimaRequest.proto" />
+    <None Remove="Protos\NimaSupply.proto" />
+    <None Remove="Protos\SanaTransaction.proto" />
+    <None Remove="Protos\XERate.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\DateConverter.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\NimaDeal.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\NimaOffer.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\NimaRequest.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\NimaSupply.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\SanaTransaction.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\XERate.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.23.4" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="Grpc.Core" Version="2.46.6" />
+    <PackageReference Include="Grpc.Tools" Version="2.56.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChariswallNewDomain\ChariswallNewDomain.csproj" />
+    <ProjectReference Include="..\ChariswallNewRepositories\ChariswallNewRepositories.csproj" />
+  </ItemGroup>
+
+</Project>

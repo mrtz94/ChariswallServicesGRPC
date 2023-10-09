@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/NimaDeal.cs \
+obj\Debug\net7.0\Protos/NimaDealGrpc.cs: Protos/NimaDeal.proto

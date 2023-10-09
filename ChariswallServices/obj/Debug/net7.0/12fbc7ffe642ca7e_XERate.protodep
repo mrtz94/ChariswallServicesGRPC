@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/XERate.cs \
+obj\Debug\net7.0\Protos/XERateGrpc.cs: Protos/XERate.proto
