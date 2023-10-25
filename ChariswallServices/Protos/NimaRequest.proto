@@ -9,6 +9,9 @@ service NimaRequest {
     rpc ProcessRequestDetail(RequestDetailInput) returns (ResultOutputRequest);
     rpc GetNewRequests(GeneralInputRequest) returns (NewRequests);
     rpc CheckRequest(CodeInput) returns (CheckOutput);
+
+    rpc GetAll() returns ();
+    rpc Get() returns ();
 }
 
 message CodeInput {

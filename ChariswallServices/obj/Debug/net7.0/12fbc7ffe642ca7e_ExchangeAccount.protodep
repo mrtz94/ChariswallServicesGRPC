@@ -1,0 +1,2 @@
+obj\Debug\net7.0\Protos/ExchangeAccount.cs \
+obj\Debug\net7.0\Protos/ExchangeAccountGrpc.cs: Protos/ExchangeAccount.proto

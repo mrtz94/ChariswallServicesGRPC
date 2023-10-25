@@ -8,6 +8,16 @@ service SanaTransaction {
   rpc GetTransaction (TransactionInput) returns (ResultOutput);
   rpc checkTransaction (TNInput) returns (TNOutput);
   rpc SavePayments(PaymentInput) returns (ResultOutput);
+
+  rpc GetAll() returns ();
+  rpc Get() returns ();
+  rpc GetSanaPays() returns ();
+  rpc Add() returns ();
+  rpc Edit() returns ();
+  rpc Delete() returns ();
+  rpc AddPay() returns ();
+  rpc DeletePay() returns ();
+  rpc GetPaymentOrderTypes() returns ();
 }
 
 message ResultOutput {

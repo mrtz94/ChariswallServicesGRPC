@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ChariswallNewDomain.Models;
+﻿namespace ChariswallNewDomain.Models;
 
 public partial class ExchangeBankAccount
 {
@@ -12,4 +9,5 @@ public partial class ExchangeBankAccount
     public string ShabaNumber { get; set; } = null!;
 
     public bool? Enable { get; set; }
+    public bool Default { get; set; }
 }

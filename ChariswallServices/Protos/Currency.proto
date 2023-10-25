@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package Currency;
+
+service Currency {
+	rpc GetAll() returns();
+}

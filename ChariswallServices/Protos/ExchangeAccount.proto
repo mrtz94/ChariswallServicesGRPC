@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package ExchangeAccount;
+
+service ExchangeAccount {
+    rpc GetAccounts(GeneralInputAcc) returns (accountList);
+    rpc GetActive(GeneralInputAcc) returns (accountList);
+    rpc AddAccount(account) returns (GeneralOutput);
+    rpc DisableAccount(GeneralInputAcc) returns (GeneralOutput);
+    rpc SetDefault(GeneralInputAcc) returns (GeneralOutput);
+}
+
+message GeneralInputAcc {
+    int32 input = 1;
+}
+
+message GeneralOutput {
+    bool result = 1;
+}
+
+message accountList {
+    repeated account accounts = 1;
+}
+
+message account {
+    int32 id = 1;
+    string bank = 2;
+    string accNum = 3;
+    bool enable = 4;
+}

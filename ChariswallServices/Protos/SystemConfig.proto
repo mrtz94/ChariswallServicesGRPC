@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "ChariswallServices.Protos";
+
+package SystemConfig;
+
+service SystemConfig {
+	rpc StartTrades() returns();
+	rpc EndTrades() returns();
+	rpc GetTradesStatus() returns();
+
+}

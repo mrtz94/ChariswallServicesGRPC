@@ -17,6 +17,195 @@ service NimaOffer {
     rpc GetUnfinishedOffers(GeneralInputOOffer) returns (NewOffers);
 
     rpc GetSalesLastDate(GeneralInputOOffer) returns (LastDateOutputOffer);
+
+    rpc GetAllOffers(google.protobuf.Empty) returns (OfferList);
+    rpc GetOpenOffers(google.protobuf.Empty) returns (ChariswallOfferList);
+    rpc GetActiveOffers(google.protobuf.Empty) returns (ChariswallOfferList);
+    rpc GetActiveOfferCount(google.protobuf.Empty) returns (ChariswallOfferList);
+    rpc GetOfferHistory(OfferIdResponse) returns (OfferLogList);
+    rpc GetFinishedOffers(google.protobuf.Empty) returns (ChariswallOfferList);
+    rpc GetOffer(OfferIdResponse) returns (ChariswallOfferRecord);
+    rpc AutoOfferRegister(AutoOffersDTO) returns (OfferIdResponse);
+    rpc RegisterOffer(ChariswallOfferRecord) returns (OfferIdResponse);
+    rpc EditOffer(ChariswallOfferRecord) returns (google.protobuf.Empty);
+    rpc DeleteOffer(OfferIdResponse) returns (google.protobuf.Empty);
+    rpc DeleteUnregisteredOffer(OfferIdResponse) returns (google.protobuf.Empty);
+    rpc ConfirmOffer(OfferIdResponse) returns (google.protobuf.Empty);
+    rpc RejectOffer(OfferIdResponse) returns (google.protobuf.Empty);
+    rpc DiscardOffer(OfferIdResponse) returns (google.protobuf.Empty);
+    rpc ResetOfferStatus(OfferIdResponse) returns (google.protobuf.Empty);
+
+    rpc PaymentOrderUpload(OfferPO) returns (OfferIdResponse);
+    rpc ConfirmPaymentOrder(OfferIdResponse) returns (OfferIdResponse);
+    rpc GetPayments(OfferIdResponse) returns (PayList);
+    rpc GetPOs(OfferIdResponse) returns (POList);
+    rpc SetPONumber(PayInput) returns (google.protobuf.Empty);
+    rpc ConfirmPayment(PayInput) returns (google.protobuf.Empty);
+    rpc RejectPayment(PayInput) returns (google.protobuf.Empty);
+
+    rpc SaleProfile(UserProfileSaleInput) returns (UserProfileSaleOutput);
+}
+
+message UserProfileSaleInput {
+    string FromDate = 1;
+    string ToDate = 2;
+    string UserId = 3;
+}
+
+message UserProfileSaleOutput {
+    repeated ChariswallOfferRecord offers = 1;
+    repeated CurrencyGroupedSale groupedOffers = 2;
+    double aedsum = 3;
+}
+
+message CurrencyGroupedSale {
+    string currency = 1;
+    double amount = 2;
+    double aedamount = 3;
+    int32 count = 4;
+}
+
+message PayInput {
+    int32 Id = 1;
+    string code = 2;
+}
+
+message PayList {
+    repeated NimaPaymentInputOffer pays = 1;
+}
+
+message POList {
+    repeated NimaOfferPOInput pays = 1;
+}
+
+message OfferPO {
+    string File = 1;
+}
+
+message AutoOffersDTO
+{
+    int32 USD = 1;
+    int32 EUR = 2;
+    int32 CNY = 3;
+    int32 AED = 4;
+    int32 INR = 5;
+    repeated string users = 6;
+    int32 option = 7;
+}
+message OfferLogList {
+    repeated OfferLog logs = 1;
+}
+
+message OfferLog {
+    string CreateUser = 1;
+    string CreateTime = 2;
+    string UpdateUser = 3;
+    string UpdateTime = 4;
+    string Status = 5;
+    string IPAddress = 6;
+    int32 OfferCode = 7;
+    int32 RequestCode = 8;
+}
+
+message OfferIdResponse {
+    int32 value = 1;
+}
+
+message ChariswallOfferList {
+    repeated ChariswallOfferRecord records = 1;
+}
+
+message ChariswallOfferRecord {
+    int32 Id = 1;
+    string DetailLink = 2;
+    int32 OfferCode = 3;
+    string Currency = 4;
+    double Amount = 5;
+    double CurrencyRate = 6;
+    int32 RateFactor = 7;
+    string OfferExpireTime = 8;
+    int32 RequestCode = 9;
+    int32 Status = 10;
+    string StatusText = 11;
+    string OfferDate = 12;
+    int32 Podays = 13;
+    string LastUpdateDate = 14;
+    int32 RegisterUser = 15;
+    string SanaTrackingNumber = 16;
+    string Description = 17;
+    double RialWage = 18;
+    double CurrencyWage = 19;
+    double RialAmount = 20;
+    string RialPaymentDeadline = 21;
+    int32 ExchangeBankAccount = 22;
+    int32 RequestStatus = 23;
+    int32 RequestType = 24;
+    string RequestRegisterDate = 25;
+    string RegisterValidityDate = 26;
+    int32 RegisterCode = 27;
+    int32 CustomerTradeType = 28;
+    string RequestPaymentDeadline = 29;
+    string RequestReason = 30;
+    int32 DestinationCountry = 31;
+    int32 Customer = 32;
+    int32 CustomerContact = 33;
+    int32 CustomerUser = 34;
+    int32 OfferDetailRead = 35;
+    int32 RequestDetailRead = 36;
+    string ServerDateTimeRead = 37;
+    string ServerDateTimeOfferDetail = 38;
+    string ServerDateTimeRequestDetail = 39;
+    double SugestedCurrencyRate = 40;
+    int32 SuggestedWage = 41;
+    bool Added250Wage = 42;
+    int32 Potype = 43;
+    string SystemCreateTime = 44;
+    string CreateUser = 45;
+    string Trader = 46;
+    string LastUpdateUser = 47;
+    string LastUpdateTime = 48;
+    string LastTransferTryTime = 49;
+    int32 TransferStatus = 50;
+    int32 LocalStatus = 51;
+    string LastNimaCheckTime = 52;
+    string LastNimaChangeTime = 53;
+    bool Enabled = 54;
+    int32 LastAction = 55;
+    int32 LastActionStatus = 56;
+    string Ponumber = 57;
+    string ErrorMessage = 58;
+    int32 Industry = 59;
+    string ConvertCurrency = 60;
+    double OffPercentage = 61;
+    int32 RegisterSystem = 62;
+    string Swiftcode = 63;
+    string AccountNumber = 64;
+    string Iban = 65;
+    string OtherCodes = 66;
+    string OtherCodesDescription = 67;
+    string DestinationBankAccount = 68;
+    string BankAddress = 69;
+    string AccountOwnerName = 70;
+    string AccountOwnerPhone = 71;
+    string AccountOwnerAddress = 72;
+}
+
+message OfferList {
+    repeated OfferListRecord records = 1;
+}
+
+message OfferListRecord {
+    int32 OfferCode = 1;
+    double Amount = 2;
+    string CurrencyName = 3;
+    string ExpireDateTime = 4;
+    string RefURL = 5;
+    int32 RequestCode = 6;
+    string State = 7;
+    double UnitPrice = 8;
+    int32 UnitRate = 9;
+    string Customer = 10;
+    string Trader = 11;
 }
 
 message LastDateOutputOffer {

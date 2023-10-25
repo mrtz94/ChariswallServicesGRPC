@@ -8,6 +8,9 @@ service NimaSupply {
     rpc ProcessSupplies(SupplyInput) returns (ResultOutputSupply);
     rpc ProcessSupplyDetail(SupplyDetailInput) returns (ResultOutputSupply);
     rpc GetNewSupplies(GeneralInputSupply) returns (NewSupplies);
+    
+    rpc GetAll() returns ();
+    rpc Get() returns ();
 }
 
 message GeneralInputSupply {

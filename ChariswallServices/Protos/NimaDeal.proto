@@ -19,6 +19,21 @@ service NimaDeal {
     rpc GetUnfinishedDeals(GeneralInputDeal) returns (NewDeals);
 
     rpc GetBuysLastDate(GeneralInputDeal) returns (LastDateOutputDeal);
+    
+    rpc GetAll() returns ();
+    rpc Get() returns ();
+    rpc RegisterPayment() returns ();
+    rpc RegisterToSana() returns ();
+    rpc POConfirm() returns ();
+    rpc POReject() returns ();
+    rpc Discard() returns ();
+    rpc GetPayments() returns ();
+
+    rpc GetAllDemands() returns ();
+    rpc GetDemand() returns ();
+    rpc RegisterDemand() returns ();
+    rpc DeleteDemand() returns ();
+
 }
 
 message LastDateOutputDeal {
